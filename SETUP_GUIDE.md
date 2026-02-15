@@ -49,29 +49,69 @@ Database seeded with 6 products:
 
 ## Quick Start
 
-### 1. Install Dependencies
+### Prerequisites
+- PHP 8.2 or higher
+- MySQL Server running locally
+- Composer installed
+- Node.js & NPM (optional, for frontend assets)
+
+### 1. Prerequisites Setup
+
+#### MySQL Database Creation
+Create the database in MySQL:
+```bash
+mysql -u root
+CREATE DATABASE php_project;
+EXIT;
+```
+
+Or use MySQL Workbench/PhpMyAdmin to create database `php_project`.
+
+### 2. Install Dependencies
 ```bash
 composer install
 npm install
 ```
 
-### 2. Setup Environment
+### 3. Setup Environment
 ```bash
 cp .env.example .env
+```
+
+Edit `.env` file and configure MySQL:
+```dotenv
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=php_project
+DB_USERNAME=root
+DB_PASSWORD=          # Add your MySQL password if set
+```
+
+Generate application key:
+```bash
 php artisan key:generate
 ```
 
-### 3. Run Migrations & Seed Database
+### 4. Run Migrations & Seed Database
 ```bash
 php artisan migrate:fresh --seed
 ```
 
-### 4. Start Development Server
+This will:
+- Create users, products, orders, and order_items tables
+- Seed 6 sample products
+- Create a test user (test@example.com)
+
+### 5. Start Development Server
 ```bash
 php artisan serve
 ```
 
 The application will be available at: **http://localhost:8000**
+
+### Quick Setup Script (Windows)
+Double-click `setup.bat` to automatically run all setup steps.
 
 ## Usage
 
@@ -155,18 +195,100 @@ const tax = subtotal * 0.1;  // Change 0.1 to your tax rate
 
 ## Routes
 
+### Web Routes
 | Route | Method | Purpose |
-|-------|--------|---------|
+|-------|--------|----------|
 | `/` | GET | Display shop with products |
 | `/order` | POST | Process order submission |
 
-## API Response
+### API Routes (/api)
+
+#### Products Endpoints
+| Endpoint | Method | Purpose |
+|----------|--------|----------|
+| `/api/products` | GET | Get all products |
+| `/api/products/{id}` | GET | Get single product |
+| `/api/products` | POST | Create product |
+| `/api/products/{id}` | PUT | Update product |
+| `/api/products/{id}` | DELETE | Delete product |
+
+#### Orders Endpoints
+| Endpoint | Method | Purpose |
+|----------|--------|----------|
+| `/api/orders` | GET | Get all orders |
+| `/api/orders/{id}` | GET | Get single order |
+| `/api/orders` | POST | Create new order |
+| `/api/orders/{id}` | PUT | Update order |
+| `/api/orders/{id}` | DELETE | Delete order |
+
+## API Response Examples
+
+### Get All Products
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": 1,
+      "name": "Premium Shoes",
+      "description": "Comfortable and stylish premium shoes",
+      "price": "89.99",
+      "image": "https://picsum.photos/250/200?1",
+      "quantity": 50,
+      "created_at": "2026-02-15T10:30:00.000000Z",
+      "updated_at": "2026-02-15T10:30:00.000000Z"
+    }
+  ],
+  "count": 6
+}
+```
+
+### Create Order
+```bash
+curl -X POST http://localhost:8000/api/orders \
+  -H "Content-Type: application/json" \
+  -d '{
+    "full_name": "John Doe",
+    "email": "john@example.com",
+    "phone": "1234567890",
+    "address": "123 Main St",
+    "city": "New York",
+    "zip": "10001",
+    "total_amount": 299.98,
+    "items": [
+      {"product_id": 1, "quantity": 2, "price": 89.99},
+      {"product_id": 2, "quantity": 1, "price": 199.99}
+    ]
+  }'
+```
 
 ### Post Order Response
 ```json
 {
   "success": true,
-  "order_id": 123
+  "order_id": 123,
+  "message": "Order created successfully",
+  "data": {
+    "id": 123,
+    "full_name": "John Doe",
+    "email": "john@example.com",
+    "phone": "1234567890",
+    "address": "123 Main St",
+    "city": "New York",
+    "zip": "10001",
+    "total_amount": "299.98",
+    "created_at": "2026-02-15T10:30:00.000000Z",
+    "updated_at": "2026-02-15T10:30:00.000000Z",
+    "items": [
+      {
+        "id": 1,
+        "order_id": 123,
+        "product_id": 1,
+        "quantity": 2,
+        "price": "89.99"
+      }
+    ]
+  }
 }
 ```
 

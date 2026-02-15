@@ -30,9 +30,9 @@ body {
 
 /* Header & Navigation */
 header {
-  background: linear-gradient(135deg, var(--primary-color) 0%, #4f46e5 100%);
+  background: linear-gradient(135deg, var(--primary-color) 0%, #000000 100%);
   color: #fff;
-  padding: 20px;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -60,7 +60,7 @@ header h2 {
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
 }
 
 .cart-btn:hover {
@@ -81,7 +81,7 @@ header h2 {
 
 /* Product Card */
 .card {
-  background: #fff;
+  background: #ffffff;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: var(--card-shadow);
@@ -504,7 +504,7 @@ header h2 {
 <body>
 
 <header>
-  <h2>🛍️ Premium Store</h2>
+  <h2>SHOPY CART</h2>
   <div class="cart-btn" onclick="toggleCart()">🛒 Cart (<span id="cartCount">0</span>)</div>
 </header>
 

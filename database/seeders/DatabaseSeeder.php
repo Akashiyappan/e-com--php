@@ -34,46 +34,68 @@ class DatabaseSeeder extends Seeder
         // Create sample products
         $products = [
             [
-                'name' => 'Premium Shoes',
-                'description' => 'Comfortable and stylish premium shoes',
-                'price' => 89.99,
-                'image' => 'https://picsum.photos/250/200?1',
+                'name' => 'Wireless Headphones',
+                'description' => 'High-quality wireless headphones with noise cancellation and 30-hour battery life.',
+                'price' => 79.99,
+                'image' => 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&h=500&fit=crop',
+                'category' => 'Electronics',
                 'quantity' => 50
             ],
             [
-                'name' => 'Luxury Watch',
-                'description' => 'Elegant luxury watch for everyday wear',
+                'name' => 'Smart Watch',
+                'description' => 'Feature-packed smartwatch with fitness tracking, heart rate monitor, and GPS.',
                 'price' => 199.99,
-                'image' => 'https://picsum.photos/250/200?2',
-                'quantity' => 30
-            ],
-            [
-                'name' => 'Designer Bag',
-                'description' => 'Premium designer bag made with finest materials',
-                'price' => 149.99,
-                'image' => 'https://picsum.photos/250/200?3',
-                'quantity' => 25
-            ],
-            [
-                'name' => 'Wireless Headphones',
-                'description' => 'High-quality wireless headphones with noise cancellation',
-                'price' => 129.99,
-                'image' => 'https://picsum.photos/250/200?4',
+                'image' => 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&h=500&fit=crop',
+                'category' => 'Electronics',
                 'quantity' => 40
             ],
             [
-                'name' => 'Sunglasses',
-                'description' => 'Trendy sunglasses with UV protection',
-                'price' => 79.99,
-                'image' => 'https://picsum.photos/250/200?5',
+                'name' => 'Running Shoes',
+                'description' => 'Comfortable running shoes with excellent cushioning and support.',
+                'price' => 89.99,
+                'image' => 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&h=500&fit=crop',
+                'category' => 'Footwear',
+                'quantity' => 35
+            ],
+            [
+                'name' => 'Backpack',
+                'description' => 'Durable backpack with multiple compartments and laptop sleeve.',
+                'price' => 49.99,
+                'image' => 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=500&fit=crop',
+                'category' => 'Accessories',
                 'quantity' => 60
             ],
             [
-                'name' => 'Leather Belt',
-                'description' => 'Genuine leather belt with premium buckle',
-                'price' => 49.99,
-                'image' => 'https://picsum.photos/250/200?6',
-                'quantity' => 80
+                'name' => 'Coffee Maker',
+                'description' => 'Premium coffee maker with programmable settings and thermal carafe.',
+                'price' => 129.99,
+                'image' => 'https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?w=500&h=500&fit=crop',
+                'category' => 'Home',
+                'quantity' => 25
+            ],
+            [
+                'name' => 'Yoga Mat',
+                'description' => 'Non-slip yoga mat with extra thickness for comfort and support.',
+                'price' => 29.99,
+                'image' => 'https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=500&h=500&fit=crop',
+                'category' => 'Fitness',
+                'quantity' => 45
+            ],
+            [
+                'name' => 'Desk Lamp',
+                'description' => 'LED desk lamp with adjustable brightness and color temperature.',
+                'price' => 39.99,
+                'image' => 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=500&h=500&fit=crop',
+                'category' => 'Home',
+                'quantity' => 55
+            ],
+            [
+                'name' => 'Sunglasses',
+                'description' => 'Stylish sunglasses with UV protection and polarized lenses.',
+                'price' => 59.99,
+                'image' => 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=500&h=500&fit=crop',
+                'category' => 'Accessories',
+                'quantity' => 70
             ]
         ];
 
